@@ -1,0 +1,95 @@
+:root{--ink:#111;--muted:#767676;--space:clamp(24px,4vw,64px);--font:'Helvetica Neue',Helvetica,Arial,'Apple SD Gothic Neo',sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:13px;font-weight:400;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{opacity:.6}a:focus-visible{outline:1px solid #111;outline-offset:5px}::selection{background:#111;color:#fff}.navigation{position:absolute;top:var(--space);right:var(--space);z-index:5}nav{display:flex;flex-direction:column;gap:7px;align-items:flex-start}nav a{font-size:12px;line-height:1.2;transition:opacity .2s}nav a:hover,nav a[aria-current]{text-decoration:underline;text-underline-offset:3px}.home{min-height:100svh;padding:var(--space);display:flex;flex-direction:column;justify-content:space-between}.home-title{font-weight:700;font-size:clamp(78px,12.5vw,200px);line-height:.9;letter-spacing:-.065em;margin:0;width:fit-content}.home-information{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6vw;padding-top:100px}.home-information h2{font-size:13px;line-height:1.5;font-weight:700;margin:0 0 16px}.home-information p,.about-information p{font-size:13px;line-height:1.55;margin:0 0 17px}.home-information p:last-child{margin-bottom:0}.placeholder{color:var(--muted)}.page{padding:var(--space);min-height:100svh}.page-title{font-size:clamp(66px,9vw,140px);font-weight:700;line-height:.95;letter-spacing:-.065em;margin:0 0 110px;width:fit-content}.page-title a:hover{opacity:1}.record-list{max-width:1120px}.record{display:block;margin-bottom:110px}.record:last-child{margin-bottom:25px}.record:hover{opacity:1}.record-image{overflow:hidden}.record-image img{display:block;width:100%;height:auto;aspect-ratio:1.65;object-fit:cover;transition:transform .3s}.record:hover img{transform:scale(1.015)}.record-information{display:flex;justify-content:space-between;gap:30px;margin-top:21px;font-size:12px;line-height:1.65}.record-information h2{font-size:13px;font-weight:400;line-height:1.65;margin:2px 0}.record-information>span{padding-top:2px}.tags{font-size:12px;line-height:1.7}.record-information .tags{color:#555}.empty-state{font-size:13px;color:#666;margin:0;line-height:1.7}.about-information{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:800px}.about-information a{overflow-wrap:anywhere}.detail{padding-top:calc(var(--space) + 80px);max-width:1500px}.back{font-size:12px;text-decoration:underline;text-underline-offset:3px}.detail-header{margin:70px 0 45px;font-size:12px;line-height:1.7}.detail-header h1{font-size:clamp(36px,5.5vw,80px);font-weight:700;line-height:1.02;letter-spacing:-.045em;margin:13px 0 24px}.detail-year{display:block;margin-top:5px}.detail-lead{width:100%;max-height:800px;object-fit:cover;display:block}.detail-section{display:grid;grid-template-columns:1fr 3fr;gap:40px;margin:75px 0}.detail-section h2{font-size:13px;font-weight:400;margin:0;line-height:1.8}.detail-section p{font-size:13px;line-height:1.95;max-width:660px;margin:0;color:#444}.process-images{display:grid;gap:55px}.process-images figure,.project-content figure{margin:0}.process-images img,.project-content img{width:100%;display:block}.process-images figcaption,.project-content figcaption{font-size:12px;color:#666;margin-top:15px;line-height:1.7}.detail-next{display:flex;justify-content:space-between;gap:25px;font-size:12px;margin-top:100px;margin-bottom:25px}.detail-next a:hover{text-decoration:underline;text-underline-offset:3px}.project-content{display:grid;gap:65px;margin-top:65px}.project-content>p{font-size:13px;line-height:1.9;max-width:660px}@media(min-width:1600px){.home-information{max-width:1440px}.home-title{font-size:200px}}@media(max-width:900px){.home-title{font-size:clamp(78px,12.5vw,125px)}.home-information{gap:35px}.home-information p,.about-information p{font-size:12px}.page-title{margin-bottom:80px}.record{margin-bottom:85px}}@media(max-width:600px){:root{--space:24px}.navigation{top:26px}nav{gap:7px}nav a{font-size:10px}.home-title{font-size:clamp(58px,13.8vw,83px);padding-top:90px;letter-spacing:-.06em}.home{min-height:100svh}.home-information{grid-template-columns:1fr 1fr;gap:32px 24px;padding-top:110px}.home-information section:last-child{grid-column:auto}.home-information h2{font-size:11px;margin-bottom:10px}.home-information p{font-size:11px;line-height:1.6;margin-bottom:15px}.home-information section:last-child p{overflow-wrap:anywhere}.page{padding-top:116px}.page-title{font-size:clamp(55px,13.5vw,80px);margin-bottom:65px}.record{margin-bottom:70px}.record-image img{aspect-ratio:1.3}.record-information{margin-top:16px;font-size:11px;gap:20px}.record-information h2{font-size:12px}.tags{font-size:11px}.about-information{grid-template-columns:1fr;gap:45px}.about-information p{font-size:12px}.detail-header{margin:45px 0 30px}.detail-header h1{font-size:38px}.detail-section{grid-template-columns:1fr;gap:20px;margin:50px 0}.detail-section p{font-size:12px}.process-images{gap:40px}.detail-next{font-size:11px;margin-top:60px}.detail-next>a:last-child{text-align:right;max-width:190px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.home-information a{overflow-wrap:anywhere}
+
+/* Week selector only: shared by Archive and Week detail pages. */
+.week-navigation{display:flex;flex-direction:row;align-items:center;flex-wrap:wrap;gap:16px 26px;margin:0 0 36px;padding:0}
+.week-navigation a,.week-navigation span{font-size:12px;line-height:1.5;font-weight:400;font-variant-numeric:tabular-nums;letter-spacing:0}
+.week-navigation a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.week-navigation a[aria-current="page"]{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.week-navigation .week-unavailable{color:#999}
+@media(max-width:600px){.week-navigation{gap:14px 22px;margin-bottom:28px}.week-navigation a,.week-navigation span{font-size:11px}}
+
+/* Only the Week 02 topic exploration content. */
+.week02-detail .week02-topic h3{font-size:25px;font-weight:400;line-height:1.3;margin:0 0 22px;letter-spacing:-.5px}
+.week02-photos{display:grid;grid-template-columns:minmax(0,35fr) minmax(0,65fr);gap:clamp(32px,5vw,80px);align-items:start;margin:95px 0 110px}
+.week02-photos figure{margin:0;min-width:0}
+.week02-photos img{display:block;width:100%;height:auto;object-fit:contain}
+.week02-photos figcaption{font-size:12px;line-height:1.7;color:#666;margin-top:16px}
+.week02-categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 55px}
+.week02-categories h3{font-size:16px;font-weight:400;line-height:1.4;margin:0 0 15px}
+.week02-detail .week02-observation{margin-top:140px;margin-bottom:110px}
+.week02-detail .week02-observation p{font-size:21px;line-height:1.8;letter-spacing:-.35px;color:#111;max-width:800px}
+@media(max-width:600px){.week02-photos{grid-template-columns:1fr;gap:45px;margin:55px 0 65px}.week02-categories{gap:35px 24px}.week02-categories h3{font-size:14px}.week02-detail .week02-observation{margin-top:85px;margin-bottom:65px}.week02-detail .week02-observation p{font-size:18px}.week02-detail .week02-topic h3{font-size:23px}}
+
+/* Week 03: research and benchmarking, using the existing detail spacing. */
+.week03-detail h3{font-size:25px;font-weight:400;line-height:1.4;margin:0 0 22px;letter-spacing:-.5px}
+.week03-research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 55px}
+.week03-research-grid h3{font-size:16px;letter-spacing:0;margin-bottom:15px}
+.week03-detail h4{font-size:12px;font-weight:400;margin:35px 0 15px}
+.week03-research-image{width:min(760px, calc(60% - 24px));margin:75px 0 110px calc(25% + 30px)}
+.week03-research-image img{display:block;width:100%;height:auto;object-fit:contain}
+.week03-research-image figcaption{font-size:12px;color:#666;line-height:1.7;margin-top:16px}
+.week03-detail .week03-observation{margin-top:140px;margin-bottom:110px}
+.week03-observation h3{font-size:24px;line-height:1.7;max-width:800px;margin-bottom:30px}
+.week03-detail .week03-observation p+p{margin-top:22px}
+@media(max-width:600px){.week03-detail h3{font-size:23px}.week03-research-grid{gap:35px 24px}.week03-research-grid h3{font-size:14px}.week03-research-image{width:100%;margin:70px 0 65px}.week03-detail .week03-observation{margin-top:85px;margin-bottom:65px}.week03-observation h3{font-size:20px}}
+
+/* Week 04 shares the existing detail grid and type scale. */
+.week04-detail h3{font-size:25px;font-weight:400;line-height:1.4;margin:0 0 22px;letter-spacing:-.5px}
+.week04-detail h4{font-size:12px;font-weight:400;margin:0 0 12px}
+.week04-steps{display:grid;gap:30px}
+.week04-data{display:grid;gap:30px;margin-top:40px}
+.week04-image{width:min(760px,calc(60% - 24px));margin:75px 0 110px calc(25% + 30px)}
+.week04-image-wide{width:min(900px,calc(67.5% - 27px))}
+.week04-image img{display:block;width:100%;height:auto;object-fit:contain}
+.week04-image figcaption{font-size:12px;line-height:1.7;color:#666;margin-top:16px}
+.week04-detail .week04-observation{margin-top:140px;margin-bottom:110px}
+.week04-observation h3{font-size:24px;line-height:1.7;max-width:800px;margin-bottom:30px}
+@media(max-width:600px){.week04-detail h3{font-size:23px}.week04-image,.week04-image-wide{width:100%;margin:70px 0 65px}.week04-detail .week04-observation{margin-top:85px;margin-bottom:65px}.week04-observation h3{font-size:20px}}
+
+/* Focus research: only the new Week 04 section. */
+.week04-detail .week04-focus{margin-top:120px}
+.focus-groups{margin-top:75px}
+.focus-group+.focus-group{margin-top:85px}
+.week04-focus .focus-group h4{font-size:18px;line-height:1.4;margin-bottom:15px}
+.week04-focus .focus-subtitle{margin-bottom:20px;color:#111}
+.focus-group h5{font-size:11px;font-weight:400;letter-spacing:.4px;margin:36px 0 20px}
+.focus-data{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px;margin:0;font-variant-numeric:tabular-nums}
+.focus-data dt{font-size:12px;line-height:1.7;color:#555;max-width:210px}
+.focus-data dd{font-size:30px;line-height:1.3;letter-spacing:-.8px;margin:12px 0 0;font-weight:400;white-space:nowrap}
+.focus-data dd span{display:block;font-size:13px;letter-spacing:0;margin-top:9px}
+.focus-insight{margin-top:38px}
+.focus-insight h5{margin:0 0 12px}
+@media(max-width:900px){.focus-data{grid-template-columns:repeat(2,minmax(0,1fr))}.focus-data dd{font-size:27px}}
+@media(max-width:600px){.week04-detail .week04-focus{margin-top:80px}.focus-groups{margin-top:55px}.focus-group+.focus-group{margin-top:65px}.focus-data{grid-template-columns:1fr;gap:28px}.focus-data dd{font-size:30px}.week04-focus .focus-group h4{font-size:17px}}
+
+/* Archive index only; Work and all Week detail layouts remain unchanged. */
+.archive-container{width:100%;max-width:1120px}
+.archive-page .week-navigation{margin-bottom:52px}
+.archive-page .record-list{width:100%;max-width:none}
+.archive-page .record{cursor:pointer;margin:0;padding:0 0 65px}
+.archive-page .record+.record{border-top:1px solid #ddd;padding-top:65px}
+.archive-page .record:last-child{padding-bottom:25px}
+.archive-page .record-information{display:block;margin:0 0 26px;line-height:1.4}
+.archive-page .record-information>span{display:block;font-size:13px;padding:0}
+.archive-page .record-information h2{font-size:32px;font-weight:500;line-height:1.25;letter-spacing:-.65px;margin:12px 0 0}
+.archive-page .record-image{height:450px;width:100%;overflow:hidden}
+.archive-page .record-image img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;transition:transform .3s}
+.archive-page .record:hover img{transform:scale(1.012)}
+@media(max-width:600px){.archive-page .week-navigation{margin-bottom:40px}.archive-page .record-information h2{font-size:28px}.archive-page .record-information>span{font-size:12px}.archive-page .record-image{height:260px}.archive-page .record{padding-bottom:50px}.archive-page .record+.record{padding-top:50px}}
+
+/* Week 05 uses the existing detail typography and content alignment. */
+.week05-detail h3{font-size:25px;font-weight:400;line-height:1.4;margin:0 0 22px;letter-spacing:-.5px}
+.week05-image{width:min(760px,calc(60% - 24px));margin:75px 0 110px calc(25% + 30px)}
+.week05-image img{display:block;width:100%;height:auto;object-fit:contain}
+.week05-image figcaption{font-size:12px;color:#666;line-height:1.7;margin-top:16px}
+.week05-detail .week05-transition{font-size:25px;font-weight:500;line-height:1.5;letter-spacing:-.5px;color:#111;margin-top:35px;max-width:none}
+.week05-directions{list-style:none;padding:0;margin:35px 0 0;font-size:13px;line-height:1.9;display:grid;gap:13px}
+.week05-detail .week05-observation{margin-top:140px;margin-bottom:110px}
+.week05-observation h3{font-size:24px;line-height:1.7;max-width:800px;margin-bottom:30px}
+@media(max-width:600px){.week05-detail h3{font-size:23px}.week05-image{width:100%;margin:70px 0 65px}.week05-detail .week05-transition{font-size:21px}.week05-detail .week05-observation{margin-top:85px;margin-bottom:65px}.week05-observation h3{font-size:20px}}
+
+/* Archive captions contain only Week and title, beneath the preview. */
+.archive-page .record-information{margin:26px 0 0}
+@media(max-width:600px){.archive-page .record-information{margin-top:20px}}
