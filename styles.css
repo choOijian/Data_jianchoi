@@ -93,3 +93,42 @@
 /* Archive captions contain only Week and title, beneath the preview. */
 .archive-page .record-information{margin:26px 0 0}
 @media(max-width:600px){.archive-page .record-information{margin-top:20px}}
+
+/* Week 06: analysis expressed through the existing text grid. */
+.week06-detail h3{font-size:25px;font-weight:400;line-height:1.4;letter-spacing:-.5px;margin:0 0 22px;white-space:pre-line}
+.week06-detail h4{font-size:12px;font-weight:400;line-height:1.8;margin:0 0 16px}
+.week06-detail .detail-section p{white-space:pre-line}
+.week06-detail .week06-flow{font-size:11px;color:#555;line-height:2;max-width:none;margin-top:30px}
+.week06-criteria{padding:0;margin:35px 0 0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;font-size:13px}
+.week06-image{width:min(760px,calc(60% - 24px));margin:75px 0 110px calc(25% + 30px)}
+.week06-image img{display:block;width:100%;height:auto;object-fit:contain}
+.week06-image figcaption{font-size:12px;line-height:1.7;color:#666;margin-top:16px}
+.week06-relations{display:grid;gap:75px;margin-top:65px}
+.week06-stages{display:grid;gap:40px;margin-top:45px}
+.week06-stages h4{font-size:16px;margin-bottom:9px}
+.week06-down{display:block;margin:14px 0;font-size:16px}
+.week06-detail .week06-statement{font-size:25px;line-height:1.65;color:#111;margin-top:55px;max-width:800px;letter-spacing:-.5px}
+.week06-lifetimes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px;margin:45px 0 0}
+.week06-lifetimes dt{font-size:16px;margin-bottom:12px}
+.week06-lifetimes dd{font-size:12px;line-height:1.8;color:#555;margin:0}
+.week06-findings{list-style:none;display:grid;gap:50px;padding:0;margin:60px 0 0}
+.week06-findings li{display:grid;grid-template-columns:50px 1fr;gap:24px;align-items:start}
+.week06-findings li>span{font-size:28px;line-height:1.4;letter-spacing:-1px}
+.week06-detail .week06-findings p{font-size:20px;line-height:1.7;color:#111}
+.week06-detail .week06-turn{margin-top:150px;margin-bottom:110px}
+.week06-detail .week06-key{font-size:34px;line-height:1.45;letter-spacing:-.8px;margin-bottom:35px}
+.week06-vertical{display:grid;gap:20px;font-size:17px;line-height:1.8}
+.week06-vertical>span{font-size:16px}
+
+@media(max-width:900px){.week06-lifetimes{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}}
+@media(max-width:600px){.week06-detail h3{font-size:23px}.week06-criteria{grid-template-columns:repeat(2,minmax(0,1fr))}.week06-image{width:100%;margin:70px 0 65px}.week06-detail .week06-key{font-size:27px}.week06-detail .week06-statement{font-size:22px}.week06-detail .week06-turn{margin-top:90px;margin-bottom:65px}.week06-detail .week06-findings p{font-size:18px}.week06-findings li{grid-template-columns:35px 1fr;gap:18px}}
+
+/* Relation mapping: question > index > finding > explanation > relation. */
+.week06-detail .week06-question{font-size:42px;font-weight:400;line-height:1.25;letter-spacing:-1px}
+.week06-relations h4{font-size:12px;font-weight:400;color:#666;letter-spacing:.25px}
+.week06-relations h3{font-size:26px;font-weight:550;line-height:1.4;letter-spacing:-.5px}
+.week06-detail .week06-statement{font-size:26px;font-weight:550;line-height:1.4}
+@media(max-width:600px){.week06-detail .week06-question{font-size:32px;letter-spacing:-.7px}.week06-relations h3,.week06-detail .week06-statement{font-size:23px}}
+
+.week06-classification-image{width:min(900px,calc(63.75% - 25.5px))}
+@media(max-width:600px){.week06-classification-image{width:100%}}
