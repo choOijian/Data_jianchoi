@@ -1,4 +1,4 @@
-import { week06 } from './week06.js';
+import { week06 } from './week06.js?v=20261005';
 // 새 기록은 이 배열에 추가하세요. 이미지 경로는 assets/ 또는 외부 URL을 사용할 수 있습니다.
 // content: { overview, process: [{ image, caption }], topics, insight, reflection }
 export const weeks = [
@@ -192,5 +192,33 @@ export const weeks = [
       }
     }
   }
-  ,week06
+  ,week06,
+  {
+    week: '07', title: '전략 수립', thumbnail: null,
+    content: {
+      layout: 'editorial-sections',
+      strategy: {
+        label: 'STRATEGY DEVELOPMENT', title: '데이터에서 전략으로',
+        description: '추가 데이터 분석을 바탕으로 핵심 인사이트를 도출하고, 꽃의 새로운 활용을 위한 대상과 목표를 구체화했다.',
+        items: [
+          ['01', 'BACKGROUND', '프로젝트 배경'],
+          ['02', 'WHAT', '5가지 Finding'],
+          ['03', 'SO WHAT', 'Key Finding'],
+          ['04', 'FOR WHOM', '핵심 대상 선정'],
+          ['05', 'NOW WHAT', '최종 목표 수립']
+        ]
+      },
+      slides: ['assets/week07/slide-48.png', 'assets/week07/slide-49.png', 'assets/week07/slide-39.png', 'assets/week07/slide-40.png', 'assets/week07/slide-41.png', 'assets/week07/slide-42.png', 'assets/week07/slide-43.png', 'assets/week07/slide-44.png', 'assets/week07/slide-45.png', 'assets/week07/slide-46.png', 'assets/week07/slide-47.png'],
+      sections: [
+        {
+          label: 'OVERVIEW',
+          description: '6주차 데이터 분석을 바탕으로 꽃의 소비와 활용 구조에서 5가지 Finding을 도출했다. 이를 종합해 꽃이 기존 사용 목적을 마친 후 새로운 사용자와 연결되지 못해 잉여가 될 수 있다는 Key Finding을 정리했다. 이후 결혼식 꽃 장식에 주목하여 신랑·신부를 핵심 대상으로 선정하고, 사용된 꽃을 하객을 위한 답례품으로 전환하는 방향으로 목표를 구체화했다.'
+        },
+        {
+          label: 'FEEDBACK', title: '교수님 피드백',
+          description: '꽃의 폐기 경로와 처리 방식에 대한 구체적인 데이터 보완이 필요하다는 피드백을 받았다. 또한 꽃을 필요로 하는 다양한 대상과 활용처를 탐색하고, 이를 바탕으로 핵심 대상과 새로운 활용 방향을 설정할 필요가 있었다.'
+        }
+      ]
+    }
+  }
 ];

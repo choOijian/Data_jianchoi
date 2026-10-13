@@ -1,4 +1,4 @@
-import { weeks } from './weeks.js';
+import { weeks } from './weeks.js?v=20261013-5';
 import { profile } from './profile.js';
 import { projects } from './projects.js';
 import { weekNavigation } from './week-navigation.js';
@@ -28,6 +28,7 @@ function about() {
   app.innerHTML = `<section class="page about-page">${title('ABOUT')}<div class="about-information"><div>${identity()}<p>${escape(profile.location)}</p></div><div><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p><p>Portfolio<br>${contact(profile.portfolio, '[포트폴리오 주소 입력]')}</p></div></div></section>`;
 }
 function detail(w) {
+  if (w.content.layout === 'editorial-sections') { editorialSectionsDetail(w); return; }
   if (w.content.layout === 'visual-direction') { visualDirectionDetail(w); return; }
   if (w.content.layout === 'data-analysis') { dataAnalysisDetail(w); return; }
   if (w.content.layout === 'data-collection') { dataCollectionDetail(w); return; }
@@ -35,6 +36,11 @@ function detail(w) {
   if (w.content.layout === 'topic-exploration') { topicDetail(w); return; }
   const c = w.content; const next = weeks[(weeks.indexOf(w)+1)%weeks.length];
   app.innerHTML = `<article class="page detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK ${escape(w.week)}</span><h1>${escape(w.title)}</h1></header>${weekNavigation(weeks, w.week)}<img class="detail-lead" src="${escape(w.thumbnail)}" alt="${escape(w.title)} 대표 이미지"><section class="detail-section"><h2>Overview</h2><p>${escape(c.overview)}</p></section><section class="detail-section"><h2>Process</h2><div class="process-images">${c.process.map(p => `<figure><img src="${escape(p.image)}" alt="${escape(p.caption)}" loading="lazy"><figcaption>${escape(p.caption)}</figcaption></figure>`).join('')}</div></section><section class="detail-section"><h2>Topics</h2>${tags(c.topics)}</section><section class="detail-section"><h2>Insight</h2><p>${escape(c.insight)}</p></section><section class="detail-section"><h2>Reflection</h2><p>${escape(c.reflection)}</p></section><div class="detail-next"><a href="#archive">All weeks</a><a href="#week/${encodeURIComponent(next.week)}">Week ${escape(next.week)} / ${escape(next.title)}</a></div></article>`;
+}
+// Add future sections through content.sections without changing the layout.
+function editorialSectionsDetail(w) {
+  const previous = weeks[weeks.indexOf(w) - 1];
+  app.innerHTML = `<article class="page detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK ${escape(w.week)}</span><h1>${escape(w.title)}</h1></header>${weekNavigation(weeks, w.week)}${w.content.sections.map(section => `<section class="detail-section"><h2>${escape(section.label)}</h2><div>${section.title ? `<h3>${escape(section.title)}</h3>` : ''}<p>${escape(section.description)}</p></div></section>`).join('')}${w.content.strategy ? `<section class="detail-section week07-strategy"><h2>${escape(w.content.strategy.label)}</h2><div><h3>${escape(w.content.strategy.title)}</h3><p>${escape(w.content.strategy.description)}</p><ol class="week07-strategy-index">${w.content.strategy.items.map(([number, title, description]) => `<li><span>${escape(number)} /</span><span>${escape(title)}</span><span>${escape(description)}</span></li>`).join('')}</ol></div></section>` : ''}${w.content.slides?.length ? `<div class="week07-slides">${w.content.slides.map((src, index) => `<figure><img src="${escape(src)}" alt="WEEK 07 발표 슬라이드 ${String(index + 1).padStart(2, '0')}" loading="lazy" decoding="async"></figure>`).join('')}</div>` : ''}<div class="detail-next">${previous ? `<a href="#week/${encodeURIComponent(previous.week)}">Week ${escape(previous.week)} / ${escape(previous.title)}</a>` : ''}<a href="#archive">All weeks</a></div></article>`;
 }
 function topicDetail(w) {
   const c = w.content;

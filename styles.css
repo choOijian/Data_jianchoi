@@ -132,3 +132,13 @@
 
 .week06-classification-image{width:min(900px,calc(63.75% - 25.5px))}
 @media(max-width:600px){.week06-classification-image{width:100%}}
+
+.week07-slides{width:calc(75% - 30px);margin:90px 0 0 calc(25% + 30px);display:grid;gap:70px}
+.week07-slides figure{margin:0;min-width:0}
+.week07-slides img{display:block;width:100%;height:auto;object-fit:contain;border:0;border-radius:0;box-shadow:none}
+@media(max-width:600px){.week07-slides{width:100%;margin:60px 0 0;gap:40px}}
+
+.week07-strategy-index{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:22px;font-size:13px;line-height:1.8}
+.week07-strategy-index li{display:grid;grid-template-columns:42px 145px minmax(0,1fr);gap:16px}
+.week07-strategy-index li>span:first-child,.week07-strategy-index li>span:last-child{color:#666}
+@media(max-width:600px){.week07-strategy-index{font-size:12px;gap:20px}.week07-strategy-index li{grid-template-columns:32px 105px minmax(0,1fr);gap:10px}}
