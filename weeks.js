@@ -208,7 +208,7 @@ export const weeks = [
           ['05', 'NOW WHAT', '최종 목표 수립']
         ]
       },
-      slides: ['assets/week07/slide-48.png', 'assets/week07/slide-49.png', 'assets/week07/slide-39.png', 'assets/week07/slide-40.png', 'assets/week07/slide-41.png', 'assets/week07/slide-42.png', 'assets/week07/slide-43.png', 'assets/week07/slide-44.png', 'assets/week07/slide-45.png', 'assets/week07/slide-46.png', 'assets/week07/slide-47.png'],
+      slides: ['assets/week07/slide-48.webp', 'assets/week07/slide-49.webp', 'assets/week07/slide-39.webp', 'assets/week07/slide-40.webp', 'assets/week07/slide-41.webp', 'assets/week07/slide-42.webp', 'assets/week07/slide-43.webp', 'assets/week07/slide-44.webp', 'assets/week07/slide-45.webp', 'assets/week07/slide-46.webp', 'assets/week07/slide-47.webp'],
       sections: [
         {
           label: 'OVERVIEW',
@@ -219,6 +219,24 @@ export const weeks = [
           description: '꽃의 폐기 경로와 처리 방식에 대한 구체적인 데이터 보완이 필요하다는 피드백을 받았다. 또한 꽃을 필요로 하는 다양한 대상과 활용처를 탐색하고, 이를 바탕으로 핵심 대상과 새로운 활용 방향을 설정할 필요가 있었다.'
         }
       ]
+    }
+  },
+  {
+    week: '08', title: '기획안 제작 및 중간발표',
+    get thumbnail() { return this.content.slides[0]; },
+    content: {
+      layout: 'editorial-sections',
+      sections: [
+        {
+          label: 'OVERVIEW',
+          description: '7주차에서 도출한 Key Finding과 전략을 바탕으로 꽃의 새로운 활용 가능성을 구체적인 서비스 기획안으로 발전시켰다. 결혼식에서 사용된 꽃을 수거·선별·재구성하여 하객에게 답례품으로 전달하는 순환 서비스의 방향을 설정하고, 이를 시각적으로 정리한 기획안을 제작해 중간발표를 진행했다.'
+        },
+        {
+          label: 'PRESENTATION', title: '중간발표 기획안',
+          description: '꽃의 폐기 문제부터 데이터 분석, 핵심 발견, 서비스 목표와 활용 방안까지의 과정을 기획안으로 정리했다.'
+        }
+      ],
+      slides: ['assets/week08/1205.webp', 'assets/week08/1186.webp', 'assets/week08/1187.webp', 'assets/week08/1188.webp', 'assets/week08/1189.webp', 'assets/week08/1190.webp', 'assets/week08/1191.webp', 'assets/week08/1192.webp', 'assets/week08/1193.webp', 'assets/week08/1194.webp', 'assets/week08/1195.webp', 'assets/week08/1196.webp', 'assets/week08/1204.webp', 'assets/week08/1203.webp', 'assets/week08/1197.webp', 'assets/week08/1198.webp', 'assets/week08/1185.webp', 'assets/week08/1199.webp', 'assets/week08/1207.webp', 'assets/week08/1200.webp', 'assets/week08/1201.webp', 'assets/week08/1206.webp', 'assets/week08/1202.webp']
     }
   }
 ];

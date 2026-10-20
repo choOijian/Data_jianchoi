@@ -142,3 +142,11 @@
 .week07-strategy-index li{display:grid;grid-template-columns:42px 145px minmax(0,1fr);gap:16px}
 .week07-strategy-index li>span:first-child,.week07-strategy-index li>span:last-child{color:#666}
 @media(max-width:600px){.week07-strategy-index{font-size:12px;gap:20px}.week07-strategy-index li{grid-template-columns:32px 105px minmax(0,1fr);gap:10px}}
+
+.project-introduction{min-height:100svh;padding-bottom:140px}
+.project-introduction .detail-header{margin-bottom:110px}
+.project-introduction .project-subtitle{font-size:15px;line-height:1.8;color:#666;margin:28px 0 0}
+@media(max-width:600px){.project-introduction{padding-bottom:90px}.project-introduction .detail-header{margin-bottom:70px}.project-introduction .project-subtitle{font-size:13px;margin-top:22px}}
+
+.week08-slides{gap:20px}
+@media(max-width:600px){.week08-slides{gap:20px}}
