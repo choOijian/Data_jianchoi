@@ -1,4 +1,4 @@
-import { weeks } from './weeks.js?v=20261020-week08-3';
+import { weeks } from './weeks.js?v=20261029-personas';
 import { profile } from './profile.js';
 import { projects, projectIntroduction } from './projects.js?v=20261015-intro';
 import { weekNavigation } from './week-navigation.js';
@@ -19,8 +19,9 @@ function home() {
   app.innerHTML = `<section class="home"><h1 class="home-title">JIAN<br>ARCHIVE</h1><div class="home-information"><section><h2>ABOUT</h2>${identity()}</section><section><h2>CONTACT</h2><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p></section></div></section>`;
 }
 function archive() {
-  app.innerHTML = `<section class="page archive-page"><div class="archive-container">${title('ARCHIVE')}${weekNavigation(weeks)}<div class="record-list">${weeks.map(w => `<a class="record" href="#week/${encodeURIComponent(w.week)}" aria-label="Week ${escape(w.week)}: ${escape(w.title)}">${w.thumbnail ? `<div class="record-image"><img src="${escape(w.thumbnail)}" alt="${escape(w.title)} 작업 과정" loading="lazy"${w.thumbnailPosition ? ` style="object-position:${escape(w.thumbnailPosition)}"` : ''}></div>` : ''}<header class="record-information"><span>WEEK ${escape(w.week)}</span><h2>${escape(w.title)}</h2></header></a>`).join('')}</div></div></section>`;
+  app.innerHTML = `<section class="page archive-page"><div class="archive-container">${title('ARCHIVE')}${weekNavigation(weeks)}</div><footer class="archive-footer"><span>DATA VISUALIZATION &amp; INFORMATION DESIGN II</span><span>2026</span></footer></section>`;
 }
+
 function work() {
   const p = projectIntroduction;
   app.innerHTML = `<article class="page detail project-introduction"><header class="detail-header"><h1>${escape(p.title)}</h1><p class="project-subtitle">${escape(p.subtitle)}</p></header><section class="detail-section"><h2>OVERVIEW</h2><p>${escape(p.overview)}</p></section></article>`;
@@ -29,6 +30,7 @@ function about() {
   app.innerHTML = `<section class="page about-page">${title('ABOUT')}<div class="about-information"><div>${identity()}<p>${escape(profile.location)}</p></div><div><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p><p>Portfolio<br>${contact(profile.portfolio, '[포트폴리오 주소 입력]')}</p></div></div></section>`;
 }
 function detail(w) {
+  if (w.content.layout === 'service-direction') { serviceDirectionDetail(w); return; }
   if (w.content.layout === 'editorial-sections') { editorialSectionsDetail(w); return; }
   if (w.content.layout === 'visual-direction') { visualDirectionDetail(w); return; }
   if (w.content.layout === 'data-analysis') { dataAnalysisDetail(w); return; }
@@ -42,6 +44,48 @@ function detail(w) {
 function editorialSectionsDetail(w) {
   const previous = weeks[weeks.indexOf(w) - 1];
   app.innerHTML = `<article class="page detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK ${escape(w.week)}</span><h1>${escape(w.title)}</h1></header>${weekNavigation(weeks, w.week)}${w.content.sections.map(section => `<section class="detail-section"><h2>${escape(section.label)}</h2><div>${section.title ? `<h3>${escape(section.title)}</h3>` : ''}<p>${escape(section.description)}</p></div></section>`).join('')}${w.content.strategy ? `<section class="detail-section week07-strategy"><h2>${escape(w.content.strategy.label)}</h2><div><h3>${escape(w.content.strategy.title)}</h3><p>${escape(w.content.strategy.description)}</p><ol class="week07-strategy-index">${w.content.strategy.items.map(([number, title, description]) => `<li><span>${escape(number)} /</span><span>${escape(title)}</span><span>${escape(description)}</span></li>`).join('')}</ol></div></section>` : ''}${w.content.slides?.length ? `<div class="week07-slides${w.week === '08' ? ' week08-slides' : ''}">${w.content.slides.map((src, index) => `<figure><img src="${escape(new URL(src, import.meta.url).href)}" alt="WEEK ${escape(w.week)} 발표 슬라이드 ${String(index + 1).padStart(2, '0')}" width="3200" height="1800" loading="${index === 0 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'auto'}" decoding="async"></figure>`).join('')}</div>` : ''}<div class="detail-next">${previous ? `<a href="#week/${encodeURIComponent(previous.week)}">Week ${escape(previous.week)} / ${escape(previous.title)}</a>` : ''}<a href="#archive">All weeks</a></div></article>`;
+}
+function researchMaterial(data) {
+  if (!data) return '';
+  return `<div class="week09-research-material"><h4>DATA RESEARCH / 심층 조사 자료</h4><button class="week09-research-preview" type="button" data-research-open aria-label="심층 조사 자료 전체 확대" aria-haspopup="dialog"><img src="${escape(data.image)}" alt="꽃 소유권과 처리 구조 심층 조사 자료" width="3165" height="29891" loading="lazy"><span class="research-image-error" hidden>자료 이미지를 불러오지 못했습니다.</span></button><button type="button" class="week09-research-link" data-research-open aria-haspopup="dialog">전체 자료 보기 ↗</button><p class="week09-research-caption">${escape(data.caption)}</p><dialog class="week09-research-dialog" aria-labelledby="research-dialog-title"><header><h2 id="research-dialog-title">심층 조사 자료</h2><button type="button" data-research-close aria-label="심층 조사 자료 닫기">닫기 ×</button></header><div class="week09-research-scroll" tabindex="0" aria-label="전체 조사 자료 스크롤"><img data-full-research data-src="${escape(data.image)}" alt="꽃의 소유권, 처리 방식, 재사용 조건 및 운영 사례 전체 조사 자료"><p class="research-image-error" hidden>자료 이미지를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.</p></div></dialog></div>`;
+}
+function bindResearchMaterial() {
+  const material = app.querySelector('.week09-research-material');
+  if (!material) return;
+  const dialog = material.querySelector('dialog');
+  const full = material.querySelector('[data-full-research]');
+  let trigger;
+  material.querySelectorAll('img').forEach(img => {
+    const failed = () => { img.hidden = true; img.parentElement.querySelector('.research-image-error').hidden = false; };
+    img.addEventListener('error', failed);
+    if (img.complete && img.hasAttribute('src') && !img.naturalWidth) failed();
+  });
+  material.querySelectorAll('[data-research-open]').forEach(button => button.addEventListener('click', () => {
+    trigger = button;
+    if (!full.hasAttribute('src')) full.src = full.dataset.src;
+    dialog.showModal();
+    material.querySelector('.week09-research-scroll').scrollTop = 0;
+  }));
+  material.querySelector('[data-research-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => trigger?.focus());
+}
+function serviceDirectionDetail(w) {
+  const c = w.content;
+  const section = (label, html, cls = '') => `<section class="detail-section ${cls}"><h2>${escape(label)}</h2><div>${html}</div></section>`;
+  const heading = data => `<h3>${escape(data.title)}</h3><p>${escape(data.description)}</p>`;
+  const numbered = items => `<ol class="week09-list">${items.map((item, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><div>${Array.isArray(item) ? `<h4>${escape(item[0])}</h4><p>${escape(item[1])}</p>` : escape(item)}</div></li>`).join('')}</ol>`;
+  const previous = weeks[weeks.indexOf(w) - 1];
+  const personas = a => {
+    const labels = [
+      ['01 / PRIMARY PERSONA', '신부', '김서연, 29세'],
+      ['02 / SECONDARY PERSONA', '하객', '박현우, 32세'],
+      ['03 / PARTNER PERSONA', '플로리스트', '정유진, 42세']
+    ];
+    return `<section class="detail-section week09-persona-section"><h2>${escape(a.label)}</h2><div>${heading(a)}</div><div class="week09-personas">${a.images.map((image, i) => `<div class="week09-persona-row"><div class="week09-persona-label"><span>${escape(labels[i][0])}</span><h4>${escape(labels[i][1])}</h4><p>${escape(labels[i][2])}</p></div><figure class="week09-artifact"><a href="${escape(image.original)}" target="_blank" rel="noopener" aria-label="${escape(image.alt)} 원본 크게 보기"><img src="${escape(image.image)}" alt="${escape(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async"></a></figure></div>`).join('')}</div><div class="week09-persona-end"><p class="week09-persona-caption">클릭하여 원본 크게 보기</p>${a.caption ? `<p>${escape(a.caption)}</p>` : ''}</div></section>`;
+  };
+
+  app.innerHTML = `<article class="page detail week09-detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK ${escape(w.week)}</span><h1>${escape(w.title)}</h1></header>${weekNavigation(weeks, w.week)}${section('OVERVIEW', `<p>${escape(c.overview)}</p>`, 'week09-overview')}${section('01 / FEEDBACK', heading(c.feedback) + numbered(c.feedback.items))}${section('02 / RESEARCH', heading(c.research) + numbered(c.research.items) + researchMaterial(c.research.material) + `<div class="week09-key-findings"><h4>KEY FINDINGS</h4><h3>조사에서 확인한 핵심 조건</h3><p>문헌·사례·데이터 조사 결과를 해석한 설계 고려사항이며, 실제 계약과 현장 조건에 따라 확인이 필요하다.</p>${numbered(c.research.keyFindings)}</div>` + `<h4 class="week09-insight-label">INSIGHT</h4><p class="week09-insight">${escape(c.research.insight)}</p>`)}${c.artifacts.map(a => a.images ? personas(a) : section(a.label, heading(a) + (a.before ? numbered(a.before) : '') + (a.images ? personas(a) : `<figure class="week09-artifact${a.readable ? ' week09-readable' : ''}"><div class="week09-image-scroll" tabindex="0" aria-label="${escape(a.alt)} 가로 스크롤"><a href="${escape(a.original)}" target="_blank" rel="noopener" aria-label="${escape(a.alt)} 원본 크게 보기"><img src="${escape(a.image)}" alt="${escape(a.alt)}" width="${a.width}" height="${a.height}" loading="lazy" decoding="async"></a></div><figcaption>클릭하여 원본 크게 보기${a.readable ? ' · 작은 화면에서는 좌우로 스크롤할 수 있습니다.' : ''}${a.caption ? `<p>${escape(a.caption)}</p>` : ''}</figcaption></figure>`) + (a.roles ? numbered(a.roles) : '') + (a.note ? `<p class="week09-note">${escape(a.note)}</p>` : ''))).join('')}${section('09 / OBSERVATION', `<h3 class="week09-observation">${escape(c.observation.statement)}</h3><p>${escape(c.observation.description)}</p>`)}<div class="detail-next"><a href="#week/${escape(previous.week)}">Week ${escape(previous.week)} / ${escape(previous.title)}</a><a href="#archive">All weeks</a></div></article>`;
+  bindResearchMaterial();
 }
 function topicDetail(w) {
   const c = w.content;

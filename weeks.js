@@ -1,3 +1,4 @@
+import { week09 } from './week09.js?v=20261029-personas';
 import { week06 } from './week06.js?v=20261005';
 // 새 기록은 이 배열에 추가하세요. 이미지 경로는 assets/ 또는 외부 URL을 사용할 수 있습니다.
 // content: { overview, process: [{ image, caption }], topics, insight, reflection }
@@ -238,5 +239,6 @@ export const weeks = [
       ],
       slides: ['assets/week08/1205.webp', 'assets/week08/1186.webp', 'assets/week08/1187.webp', 'assets/week08/1188.webp', 'assets/week08/1189.webp', 'assets/week08/1190.webp', 'assets/week08/1191.webp', 'assets/week08/1192.webp', 'assets/week08/1193.webp', 'assets/week08/1194.webp', 'assets/week08/1195.webp', 'assets/week08/1196.webp', 'assets/week08/1204.webp', 'assets/week08/1203.webp', 'assets/week08/1197.webp', 'assets/week08/1198.webp', 'assets/week08/1185.webp', 'assets/week08/1199.webp', 'assets/week08/1207.webp', 'assets/week08/1200.webp', 'assets/week08/1201.webp', 'assets/week08/1206.webp', 'assets/week08/1202.webp']
     }
-  }
+  },
+  week09
 ];
