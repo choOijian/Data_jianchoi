@@ -1,4 +1,4 @@
-import { week10Detail } from './week10-detail.js?v=20261111-panel-scale';
+import { week10Detail } from './week10-detail.js?v=20261111-single-benchmark';
 import { weeks } from './weeks.js?v=20261111-benchmark-title';
 import { profile } from './profile.js';
 import { projects, projectIntroduction } from './projects.js?v=20261015-intro';

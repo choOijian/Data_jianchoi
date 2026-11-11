@@ -9,8 +9,8 @@ export function week10Detail(w, { escape: e, navigation }) {
   const table = ([headers, ...rows], label) => `<div class="week10-table" tabindex="0" role="region" aria-label="${e(label)}"><table><thead><tr>${headers.map(h => `<th scope="col">${e(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(([first, ...cells]) => `<tr><th scope="row">${e(first)}</th>${cells.map(cell => `<td>${e(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const number = i => String(i + 1).padStart(2, '0');
   const id = i => `week10-section-${number(i)}`;
-  const labels = ['FEEDBACK', 'INFORMATION STRUCTURE', 'INFORMATION HIERARCHY', 'BENCHMARK', 'DATA COLLECTION', 'DESIGN MOTIF', 'VISUAL STUDY', 'OBSERVATION'];
-  const titles = [...c.titles.slice(0, 4), '꽃 정보 데이터 수집', '디자인 모티브 탐색', ...c.titles.slice(4)];
+  const labels = ['FEEDBACK', 'INFORMATION STRUCTURE', 'INFORMATION HIERARCHY', 'BENCHMARK', 'DATA COLLECTION', 'DESIGN MOTIF', 'VISUAL STUDY', 'BENCHMARKING', 'OBSERVATION'];
+  const titles = [...c.titles.slice(0, 4), '꽃 정보 데이터 수집', '디자인 모티브 탐색', c.titles[4], '데이터 시각화 벤치마킹', c.titles[5]];
   const visualStudies = [
     ['WEBSITE', '웹사이트 데이터 시각화', '꽃의 사용 및 순환 과정, 절화 수명, 관리 조건, 상태별 활용 방법, 회수 및 배포 현황 등을 웹사이트에서 전달하기 위한 시각화 방식을 탐색했다.', 'website', [3123,1488,81,320,2961,940]],
     ['PICKUP STATION', '셀프픽업스테이션 정보 시각화', '꽃다발의 의미와 수령 가능 수량을 직관적으로 전달하기 위해 꽃말, 꽃다발 조합, 수량 표시 방식 등을 시각화했다.', 'pickup-station', [1829,1321,340,232,1148,857]],
@@ -34,6 +34,16 @@ export function week10Detail(w, { escape: e, navigation }) {
     </section>`;
   };
   bodies.splice(4, 0, motifStep(motifSteps[0], 0), motifSteps.slice(1).map((step, i) => motifStep(step, i + 1)).join(''));
+  const benchmarkGroups = [
+    ['관련 주제 정보 시각화 사례', '꽃과 순환, 절화 수명 및 관리 정보 등 프로젝트 주제와 직접적으로 연결되는 시각화 사례를 조사했다.', 'related'],
+    ['비관련 주제 정보 시각화 사례', '꽃과 직접적인 관련은 없지만, 수치 비교와 정보 분류 등 시각화 방식에서 참고할 수 있는 사례를 조사했다.', 'unrelated']
+  ];
+  const benchmarking = p('데이터 시각화의 표현 방식을 구체화하기 위해 관련 주제와 비관련 주제의 디자인 사례를 조사했다. 각 사례의 정보 전달 방식과 시각적 특징, 한계를 비교하고 이를 프로젝트에 적용할 수 있는 방향을 탐색했다.') + benchmarkGroups.map(([title,text,slug],i) => `<section class="week10-benchmark-group"><h4>${number(i)} / ${e(title)}</h4>${p(text)}<div class="week10-benchmark-grid">${[1,2,3].map(n => `<figure><a href="assets/week10/benchmarking-${slug}-${n}.png" target="_blank" rel="noopener" aria-label="${e(title)} ${n} 원본 크게 보기"><img src="assets/week10/benchmarking-${slug}-${n}.png" alt="${e(title)} ${n}: 정보 전달 방식, 시각적 특징, 한계 및 프로젝트 적용 분석" width="1272" height="1532" loading="lazy" decoding="async"></a></figure>`).join('')}</div></section>`).join('');
+  bodies.splice(7, 0, p(c.benchmark) + benchmarking);
+  // Consolidate the earlier overview into the detailed benchmarking section.
+  titles.splice(3, 1);
+  labels.splice(3, 1);
+  bodies.splice(3, 1);
   return `<article class="page detail week10-detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK 10</span><h1>${e(w.title)}</h1></header>${navigation}
     ${section('OVERVIEW', p(c.overview))}
     ${section('CONTENTS', `<nav class="week10-contents" aria-label="WEEK 10 목차">${titles.map((title,i) => `<a href="#${id(i)}"><span>${number(i)}</span>${e(title)}</a>`).join('')}</nav>`)}
