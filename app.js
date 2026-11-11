@@ -1,4 +1,5 @@
-import { weeks } from './weeks.js?v=20261029-personas';
+import { week10Detail } from './week10-detail.js?v=20261111-panel-scale';
+import { weeks } from './weeks.js?v=20261111-benchmark-title';
 import { profile } from './profile.js';
 import { projects, projectIntroduction } from './projects.js?v=20261015-intro';
 import { weekNavigation } from './week-navigation.js';
@@ -30,6 +31,19 @@ function about() {
   app.innerHTML = `<section class="page about-page">${title('ABOUT')}<div class="about-information"><div>${identity()}<p>${escape(profile.location)}</p></div><div><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p><p>Portfolio<br>${contact(profile.portfolio, '[포트폴리오 주소 입력]')}</p></div></div></section>`;
 }
 function detail(w) {
+  if (w.content.layout === 'information-direction') {
+    app.innerHTML = week10Detail(w, { escape, navigation: weekNavigation(weeks, w.week) });
+    app.querySelector('.week10-contents').addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const target = app.querySelector(link.hash);
+      if (!target) return;
+      event.preventDefault();
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
+    return;
+  }
   if (w.content.layout === 'service-direction') { serviceDirectionDetail(w); return; }
   if (w.content.layout === 'editorial-sections') { editorialSectionsDetail(w); return; }
   if (w.content.layout === 'visual-direction') { visualDirectionDetail(w); return; }
@@ -130,7 +144,8 @@ function projectDetail(p) {
   app.innerHTML = `<article class="page detail"><a class="back" href="#work">Back to projects</a><header class="detail-header"><span>${escape(p.category)}</span><h1>${escape(p.title)}</h1><span>${year(p)}</span></header><img class="detail-lead" src="${escape(p.thumbnail)}" alt="${escape(p.title)}"><div class="project-content">${p.description ? `<p>${escape(p.description)}</p>` : ''}${(p.images || []).map(i=>`<figure><img src="${escape(i.image)}" alt="${escape(i.caption || p.title)}" loading="lazy">${i.caption ? `<figcaption>${escape(i.caption)}</figcaption>`:''}</figure>`).join('')}</div></article>`;
 }
 function route() {
-  const hash = location.hash;
+  const sectionLink = /^#week10-section-0[1-8]$/.test(location.hash) ? location.hash : '';
+  const hash = sectionLink ? '#week/10' : location.hash;
   let page = 'home'; let pageTitle = 'JIAN ARCHIVE';
   if(hash === '#archive'){archive();page='archive';pageTitle='ARCHIVE';}
   else if(hash === '#work'){work();page='work';pageTitle='PROJECT';}
@@ -141,6 +156,7 @@ function route() {
   document.title = pageTitle === 'JIAN ARCHIVE' ? pageTitle : `${pageTitle} | JIAN ARCHIVE`;
   document.body.dataset.page=page;
   document.querySelectorAll('.navigation nav a').forEach(a=>{if(a.hash===`#${page}`)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  window.scrollTo({top:0,behavior:'instant'});
+  if (sectionLink) app.querySelector(sectionLink)?.scrollIntoView();
+  else window.scrollTo({top:0,behavior:'instant'});
 }
 window.addEventListener('hashchange',route);route();

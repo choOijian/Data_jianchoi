@@ -145,6 +145,7 @@
 
 .project-introduction{min-height:100svh;padding-bottom:140px}
 .project-introduction .detail-header{margin-bottom:110px}
+.project-introduction .detail-section > p{word-break:keep-all;overflow-wrap:break-word;text-wrap:pretty}
 .project-introduction .project-subtitle{font-size:15px;line-height:1.8;color:#666;margin:28px 0 0}
 @media(max-width:600px){.project-introduction{padding-bottom:90px}.project-introduction .detail-header{margin-bottom:70px}.project-introduction .project-subtitle{font-size:13px;margin-top:22px}}
 
@@ -220,3 +221,47 @@ body:has(.week09-research-dialog[open]){overflow:hidden}
 .week09-persona-end{grid-column:2;min-width:0}
 .week09-detail .week09-persona-end .week09-persona-caption{margin-top:0}
 @media(max-width:600px){.week09-persona-row{grid-template-columns:minmax(0,1fr);gap:20px}.week09-detail .week09-personas{gap:44px;margin:0}.week09-persona-label h4{margin-top:12px}.week09-persona-end{grid-column:1}.week09-detail .week09-persona-section{row-gap:28px}}
+
+.week10-detail .detail-section{margin-block:96px;scroll-margin-top:36px}
+.week10-detail .detail-section>div{min-width:0}
+.week10-detail .detail-section p{max-width:850px;word-break:keep-all;overflow-wrap:break-word}
+.week10-detail h3{font-size:clamp(21px,3vw,29px);font-weight:400;line-height:1.4;margin:0 0 22px}
+.week10-detail .week10-contents{display:block}
+.week10-contents a{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid #ddd;font-size:14px}
+.week10-contents span,.week10-medium>span,.week10-sketch h4 span{color:var(--muted);font-variant-numeric:tabular-nums}
+.week10-table{overflow-x:auto;margin-top:24px}
+.week10-table table{width:100%;min-width:560px;border-collapse:collapse;text-align:left;line-height:1.65;word-break:keep-all}
+.week10-table th,.week10-table td{padding:12px 16px 12px 0;border-bottom:1px solid #ddd;vertical-align:top}
+.week10-table th{font-weight:500}
+.week10-table thead th{color:#555;border-bottom-color:#aaa}
+.week10-table tbody th{width:23%}
+.week10-definitions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:28px 0}
+.week10-definitions dt,.week10-medium>span{font-size:11px;color:#666}
+.week10-definitions dd{margin:8px 0 0;line-height:1.7;word-break:keep-all}
+.week10-medium{margin-top:48px;padding-top:32px;border-top:1px solid #ddd}
+.week10-medium h4{font-weight:400;font-size:22px;margin:10px 0 0}
+.week10-medium h5{font-weight:500;font-size:13px;margin:32px 0 0}
+.week10-sketch{margin-top:24px;padding-top:16px;border-top:1px solid #ddd}
+.week10-sketch h4{font-weight:500;margin:0 0 8px}
+.week10-sketch h4 span{margin-right:12px}
+.week10-detail blockquote{margin:28px 0 16px;font-size:clamp(18px,2vw,26px);line-height:1.55;word-break:keep-all}
+@media(max-width:600px){.week10-detail .detail-section{margin-block:64px}.week10-definitions{grid-template-columns:1fr;gap:16px}}
+
+.week10-visual-study h4{margin-bottom:12px}
+.week10-detail .week10-visual-study{min-width:0;width:100%}
+/* All source panels are 545px wide; scale every strip against the 2961px WEBSITE strip. */
+.week10-visual-study figure{width:var(--sketch-width,100%);max-width:100%;margin:24px 0 0}
+.week10-visual-study figure a{display:block;width:100%;cursor:zoom-in}
+.week10-visual-study figure a:hover{opacity:1}
+.week10-visual-study img{position:static;display:block;width:100%;max-width:100%;height:auto;object-fit:contain}
+
+/* WEEK 10 research process: original assets with only outer whitespace concealed. */
+.week10-detail .week10-motif-step{min-width:0}
+.week10-detail .week10-motif-step+.week10-motif-step{border-top:1px solid #ddd;margin-top:48px;padding-top:28px}
+.week10-motif-step>span{font-size:11px;font-weight:400;line-height:1.7;color:#666}
+.week10-motif-step h4{font-size:22px;line-height:1.5;font-weight:400;margin:10px 0 12px;word-break:keep-all}
+.week10-motif-image{display:block;position:relative;overflow:hidden;width:100%;margin-top:24px;cursor:zoom-in}
+.week10-motif-image:hover{opacity:1}
+.week10-motif-image img{display:block;position:absolute;max-width:none;height:auto}
+.week10-detail p.week10-color-codes{max-width:100%;margin-top:16px;font-size:11px;color:#666}
+@media(max-width:600px){.week10-detail .week10-motif-step+.week10-motif-step{margin-top:36px;padding-top:24px}.week10-motif-step h4{font-size:20px}}
