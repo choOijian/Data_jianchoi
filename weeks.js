@@ -1,4 +1,5 @@
-import { week10 } from './week10.js?v=benchmark-title';
+import { week11 } from './week11.js?v=20261118-pickup-details';
+import { week10 } from './week10.js?v=20261118-titles';
 import { week09 } from './week09.js?v=20261029-personas';
 import { week06 } from './week06.js?v=20261005';
 // 새 기록은 이 배열에 추가하세요. 이미지 경로는 assets/ 또는 외부 URL을 사용할 수 있습니다.
@@ -242,5 +243,6 @@ export const weeks = [
     }
   },
   week09,
-  week10
+  week10,
+  week11
 ];

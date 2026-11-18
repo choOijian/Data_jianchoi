@@ -276,3 +276,46 @@ body:has(.week09-research-dialog[open]){overflow:hidden}
 .week10-benchmark-grid a:hover{opacity:1}
 .week10-benchmark-grid img{display:block;width:100%;height:auto;object-fit:contain}
 @media(max-width:600px){.week10-benchmark-grid{grid-template-columns:minmax(0,1fr);gap:28px}}
+
+/* WEEK 11 only: the established archive editorial grid and typography. */
+.week11-detail .detail-section{margin-block:96px;scroll-margin-top:36px}
+.week11-detail .detail-section>div{min-width:0}
+.week11-detail .detail-section[id]{border-top:1px solid #ddd;padding-top:32px}
+.week11-detail .detail-section p{max-width:850px;word-break:keep-all;overflow-wrap:break-word}
+.week11-detail h3{font-size:clamp(21px,3vw,29px);font-weight:400;line-height:1.4;margin:0 0 22px;word-break:keep-all}
+.week11-detail .week11-contents{display:block}
+.week11-contents a{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid #ddd;font-size:14px}
+.week11-contents a span,.week11-block h4 span{color:var(--muted);font-variant-numeric:tabular-nums}
+.week11-block{margin-top:36px;min-width:0}
+.week11-block+.week11-block{border-top:1px solid #ddd;margin-top:48px;padding-top:28px}
+.week11-block h4{font-size:19px;font-weight:400;line-height:1.5;margin:0 0 16px}
+.week11-block h4 span{font-size:11px}
+.week11-block h5{font-size:12px;font-weight:500;line-height:1.6;margin:28px 0 12px}
+.week11-definitions{margin:24px 0}
+.week11-definitions>div{display:grid;grid-template-columns:1fr 3fr;gap:24px;padding:14px 0;border-bottom:1px solid #e5e5e5;line-height:1.8;word-break:keep-all}
+.week11-definitions dt{font-size:12px;font-weight:400}
+.week11-definitions dd{font-size:13px;color:#444;margin:0}
+.week11-keywords{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 20px;margin:28px 0 0}
+.week11-keywords dt{font-size:11px;font-weight:500;overflow-wrap:anywhere}
+.week11-keywords dd{font-size:12px;line-height:1.7;color:#666;margin:8px 0 0;word-break:keep-all}
+.week11-colors{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.week11-colors figure{margin:0;min-width:0}
+.week11-swatch{width:100%;aspect-ratio:1.4}
+.week11-colors figcaption{display:flex;flex-direction:column;gap:5px;margin-top:12px;font-size:10px;line-height:1.5;overflow-wrap:anywhere;color:#666}
+.week11-image{margin:28px 0 0;min-width:0}
+.week11-image a{display:block;cursor:zoom-in}
+.week11-image a:hover{opacity:1}
+.week11-image img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain}
+.week11-image[hidden]{display:none}
+.week11-logo{padding:40px 0}
+.week11-tag-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.week11-detail p.week11-flow-summary{max-width:100%;margin-top:24px}
+.week11-detail h3.week11-observation{font-size:clamp(24px,3vw,34px);line-height:1.5}
+@media(max-width:900px){.week11-keywords{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.week11-detail .detail-section{margin-block:64px}.week11-definitions>div{grid-template-columns:1fr;gap:6px}.week11-block+.week11-block{margin-top:36px;padding-top:24px}.week11-colors{gap:7px}.week11-colors figcaption{font-size:9px}.week11-tag-pair{gap:12px}}
+
+.week11-pickup-step{margin-top:36px;padding-top:24px;border-top:1px solid #ddd}
+.week11-pickup-step h5{font-size:16px;font-weight:400;margin:0 0 16px}
+.week11-pickup-step h5 span{font-size:11px;color:#767676}
+.week11-pickup-step h6{font-size:12px;font-weight:400;margin:24px 0 0;color:#666}
+.week11-detail .week11-pickup-step p+p{margin-top:14px}

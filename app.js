@@ -1,5 +1,6 @@
+import { week11Detail } from './week11-detail.js?v=20261118-pickup-details';
 import { week10Detail } from './week10-detail.js?v=20261111-single-benchmark';
-import { weeks } from './weeks.js?v=20261111-benchmark-title';
+import { weeks } from './weeks.js?v=20261118-pickup-details';
 import { profile } from './profile.js';
 import { projects, projectIntroduction } from './projects.js?v=20261015-intro';
 import { weekNavigation } from './week-navigation.js';
@@ -20,7 +21,11 @@ function home() {
   app.innerHTML = `<section class="home"><h1 class="home-title">JIAN<br>ARCHIVE</h1><div class="home-information"><section><h2>ABOUT</h2>${identity()}</section><section><h2>CONTACT</h2><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p></section></div></section>`;
 }
 function archive() {
-  app.innerHTML = `<section class="page archive-page"><div class="archive-container">${title('ARCHIVE')}${weekNavigation(weeks)}</div><footer class="archive-footer"><span>DATA VISUALIZATION &amp; INFORMATION DESIGN II</span><span>2026</span></footer></section>`;
+  const navigation = weekNavigation(weeks).replace(/aria-label="Week (10|11)"/g, (_, number) => {
+    const label = escape(weeks.find(w => w.week === number).title);
+    return `aria-label="Week ${number}: ${label}" title="${label}"`;
+  });
+  app.innerHTML = `<section class="page archive-page"><div class="archive-container">${title('ARCHIVE')}${navigation}</div><footer class="archive-footer"><span>DATA VISUALIZATION &amp; INFORMATION DESIGN II</span><span>2026</span></footer></section>`;
 }
 
 function work() {
@@ -31,6 +36,24 @@ function about() {
   app.innerHTML = `<section class="page about-page">${title('ABOUT')}<div class="about-information"><div>${identity()}<p>${escape(profile.location)}</p></div><div><p>Email<br>${contact(profile.email, '[이메일 입력]', true)}</p><p>Instagram<br>${contact(profile.instagram, '[선택 입력]')}</p><p>Portfolio<br>${contact(profile.portfolio, '[포트폴리오 주소 입력]')}</p></div></div></section>`;
 }
 function detail(w) {
+  if (w.content.layout === 'visual-system') {
+    app.innerHTML = week11Detail(w, { escape, navigation: weekNavigation(weeks, w.week) });
+    app.querySelector('.week11-contents').addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const target = app.querySelector(link.hash);
+      if (!target) return;
+      event.preventDefault();
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
+    app.querySelectorAll('.week11-image img').forEach(img => img.addEventListener('error', () => { img.closest('figure').hidden = true; }));
+    return;
+  }
+  if (w.content.layout === 'title-only') {
+    app.innerHTML = `<article class="page detail"><a class="back" href="#archive">Back to archive</a><header class="detail-header"><span>WEEK ${escape(w.week)}</span><h1>${escape(w.title)}</h1></header>${weekNavigation(weeks, w.week)}</article>`;
+    return;
+  }
   if (w.content.layout === 'information-direction') {
     app.innerHTML = week10Detail(w, { escape, navigation: weekNavigation(weeks, w.week) });
     app.querySelector('.week10-contents').addEventListener('click', event => {
@@ -144,8 +167,8 @@ function projectDetail(p) {
   app.innerHTML = `<article class="page detail"><a class="back" href="#work">Back to projects</a><header class="detail-header"><span>${escape(p.category)}</span><h1>${escape(p.title)}</h1><span>${year(p)}</span></header><img class="detail-lead" src="${escape(p.thumbnail)}" alt="${escape(p.title)}"><div class="project-content">${p.description ? `<p>${escape(p.description)}</p>` : ''}${(p.images || []).map(i=>`<figure><img src="${escape(i.image)}" alt="${escape(i.caption || p.title)}" loading="lazy">${i.caption ? `<figcaption>${escape(i.caption)}</figcaption>`:''}</figure>`).join('')}</div></article>`;
 }
 function route() {
-  const sectionLink = /^#week10-section-0[1-8]$/.test(location.hash) ? location.hash : '';
-  const hash = sectionLink ? '#week/10' : location.hash;
+  const sectionLink = /^(?:#week10-section-0[1-8]|#week11-section-0[1-5])$/.test(location.hash) ? location.hash : '';
+  const hash = sectionLink ? (sectionLink.startsWith('#week11-') ? '#week/11' : '#week/10') : location.hash;
   let page = 'home'; let pageTitle = 'JIAN ARCHIVE';
   if(hash === '#archive'){archive();page='archive';pageTitle='ARCHIVE';}
   else if(hash === '#work'){work();page='work';pageTitle='PROJECT';}
