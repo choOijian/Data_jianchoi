@@ -1,4 +1,4 @@
-import { week11 } from './week11.js?v=20261118-pickup-details';
+import { week11 } from './week11.js?v=20261118-moodboard-clean';
 import { week10 } from './week10.js?v=20261118-titles';
 import { week09 } from './week09.js?v=20261029-personas';
 import { week06 } from './week06.js?v=20261005';

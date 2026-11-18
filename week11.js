@@ -123,9 +123,10 @@ export const week11 = {
         "height": 2548
       },
       "pickup-moodboard": {
-        "image": "assets/week11/pickup-moodboard.png",
-        "width": 4531,
-        "height": 2548
+        "image": "assets/week11/pickup-moodboard-web.png",
+        "original": "assets/week11/pickup-moodboard.png",
+        "width": 4270,
+        "height": 1474
       },
       "pickup-information": {
         "image": "assets/week11/pickup-information.png",
