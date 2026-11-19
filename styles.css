@@ -319,3 +319,11 @@ body:has(.week09-research-dialog[open]){overflow:hidden}
 .week11-pickup-step h5 span{font-size:11px;color:#767676}
 .week11-pickup-step h6{font-size:12px;font-weight:400;margin:24px 0 0;color:#666}
 .week11-detail .week11-pickup-step p+p{margin-top:14px}
+
+.week11-comparison{width:100%;overflow-x:auto;margin-top:24px}
+.week11-comparison table{width:100%;min-width:520px;border-collapse:collapse;text-align:left;line-height:1.8;word-break:keep-all}
+.week11-comparison th,.week11-comparison td{padding:16px 18px 16px 0;border-bottom:1px solid #ddd;vertical-align:top}
+.week11-comparison th{font-weight:400}
+.week11-comparison thead th{border-bottom-color:#aaa}
+.week11-comparison tbody th{width:20%;color:#767676}
+.week11-comparison td{width:40%}

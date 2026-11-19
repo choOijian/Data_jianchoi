@@ -118,9 +118,10 @@ export const week11 = {
         "height": 2548
       },
       "guest-user-flow": {
-        "image": "assets/week11/guest-user-flow.png",
-        "width": 4531,
-        "height": 2548
+        "image": "assets/week11/guest-user-flow-web.png",
+        "original": "assets/week11/guest-user-flow.png",
+        "width": 3930,
+        "height": 1400
       },
       "pickup-moodboard": {
         "image": "assets/week11/pickup-moodboard-web.png",
@@ -139,14 +140,16 @@ export const week11 = {
         "height": 2548
       },
       "tag-moodboard": {
-        "image": "assets/week11/tag-moodboard.png",
-        "width": 4531,
-        "height": 2548
+        "image": "assets/week11/tag-moodboard-web.png",
+        "original": "assets/week11/tag-moodboard.png",
+        "width": 4273,
+        "height": 1681
       },
       "bouquet-moodboard": {
-        "image": "assets/week11/bouquet-moodboard.png",
-        "width": 4531,
-        "height": 2548
+        "image": "assets/week11/bouquet-moodboard-web.png",
+        "original": "assets/week11/bouquet-moodboard.png",
+        "width": 4271,
+        "height": 1815
       },
       "tag-design": {
         "image": "assets/week11/tag-design.png",
@@ -297,6 +300,35 @@ export const week11 = {
           "꽃다발 태그의 QR코드를 확인해 주세요. 꽃의 종류와 관리 방법을 확인하고, 일상에서도 꽃을 오래 즐겨보세요."
         ]
       }
-    ]
+    ],
+    "touchpointComparison": {
+      "headers": [
+        "구분",
+        "셀프 픽업 스테이션",
+        "꽃다발 태그"
+      ],
+      "rows": [
+        [
+          "사용자 질문",
+          "어떤 꽃다발을 가져갈까?",
+          "이 꽃다발은 어떤 의미이고 어떻게 관리할까?"
+        ],
+        [
+          "주요 정보",
+          "꽃말별 조합, 메시지, 수령 방법",
+          "조합명, 꽃 이름, 메시지, QR"
+        ],
+        [
+          "시각화 방향",
+          "꽃다발 간 비교, 분류",
+          "개별 꽃다발의 구성, 정보 요약"
+        ],
+        [
+          "사용 시점",
+          "결혼식장 퇴장 전",
+          "꽃다발을 가져간 후"
+        ]
+      ]
+    }
   }
 };
